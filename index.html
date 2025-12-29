@@ -1,0 +1,99 @@
+<!-- index.html (single combined file) -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>राधे राधे — Mathura & Vrindavan</title>
+
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">राधे राधे</div>
+
+        <div class="controls">
+            <div class="search-wrap">
+                <input id="search" class="search-input" placeholder="Search temples, e.g. Janmabhoomi" />
+                <button id="searchBtn" class="search-btn">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="hero-title">राधे राधे</div>
+            <div class="hero-sub">Divine Mathura & Vrindavan — explore temples, aartis and stories</div>
+            <a href="#cards" class="btn"
+                style="margin-top:10px;background:var(--gold);color:#111;padding:10px 14px;border-radius:12px;text-decoration:none">Darshan</a>
+        </div>
+        <div class="particles" id="particles"></div>
+    </section>
+
+    <main class="container" id="mainContainer">
+        <div class="controls-row">
+            <h2 class="section-heading">Temples & Sacred Places</h2>
+            <div style="display:flex;gap:10px;align-items:center">
+                <button id="viewToggle" class="btn"
+                    style="background:#fff;border:1px solid #ddd;padding:8px 12px;border-radius:8px;cursor:pointer">📍
+                    Map View</button>
+                <select id="sort" style="padding:8px;border-radius:8px">
+                    <option value="default">Sort</option>
+                    <option value="name">Name A–Z</option>
+                </select>
+            </div>
+        </div>
+        <div class="cards" id="cards"></div>
+        <div id="mainMap"
+            style="display:none;height:500px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.1);margin-top:20px;z-index:9">
+        </div>
+    </main>
+
+    <!-- Temple full-page view (rendered when URL has ?temple=...) -->
+    <main id="templeView" style="display:none;max-width:1200px;margin:24px auto;padding:0 18px;">
+        <a id="backToMain" href="./"
+            style="display:inline-block;margin-bottom:12px;background:#fff;border-radius:10px;padding:8px 12px;border:1px solid #f0e6d6;text-decoration:none;color:var(--muted)">←
+            Back to list</a>
+        <div class="temple-full">
+            <div id="templeImage" class="temple-image"></div>
+            <h1 id="templeName" class="detail-title"></h1>
+            <p id="templeDesc" class="detail-desc"></p>
+
+            <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px" id="rightLayout">
+                <div>
+                    <h3 style="color:var(--gold)">About & Visiting</h3>
+                    <p id="templeLong" class="detail-desc"></p>
+                </div>
+                <aside class="right-panel">
+                    <div id="map" class="map"></div>
+                    <div id="weatherBox" class="weather">Loading weather…</div>
+                    <div class="chat">
+                        <div style="font-weight:700;margin-bottom:6px">Ask the site</div>
+                        <div id="chatLog" class="chat-log"></div>
+                        <div class="chat-input">
+                            <input id="chatInput" class="chat-text" placeholder="Ask about this temple or Mathura..." />
+                            <button id="sendChat" class="btn"
+                                style="background:var(--gold);padding:8px 10px;border-radius:8px">Send</button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">© Mathura Divine • Made with ❤️</footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
